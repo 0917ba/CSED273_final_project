@@ -120,65 +120,65 @@ module vending_machine(
     
     //A의 T flip-flop 입력
     assign tA = (
-    qA_&qB_&qC_&qD_&(moneyin[3])|
+    qA_&qB_&qC_&qD_&(moneyin_pulse[3])|
     qA_&qB_&qC_&qD &(1'b0)|
     qA_&qB_&qC &qD_&(1'b0)|
-    qA_&qB_&qC &qD &(moneyin[2])|
-    qA_&qB &qC_&qD_&(moneyin[2])|
-    qA_&qB &qC_&qD &(moneyin[2])|
-    qA_&qB &qC &qD_&(moneyin[1])|
-    qA_&qB &qC &qD &(moneyin[1] | moneyin[0])|
-    qA &qB_&qC_&qD_&(refund | moneyin[3] | moneyin[2] | buy[2] | buy[1] | buy[0])|
-    qA &qB_&qC_&qD &(refund | moneyin[3] | moneyin[2] | moneyin[1] | buy[3] | buy[2] | buy[1] | buy[0])|
-    qA &qB_&qC &qD_&(refund | moneyin[3] | moneyin[2] | moneyin[1] | moneyin[0] | buy[3] | buy[2] | buy[1] | buy[0])
+    qA_&qB_&qC &qD &(moneyin_pulse[2])|
+    qA_&qB &qC_&qD_&(moneyin_pulse[2])|
+    qA_&qB &qC_&qD &(moneyin_pulse[2])|
+    qA_&qB &qC &qD_&(moneyin_pulse[1])|
+    qA_&qB &qC &qD &(moneyin_pulse[1] | moneyin_pulse[0])|
+    qA &qB_&qC_&qD_&(refund | moneyin_pulse[3] | moneyin_pulse[2] | buy_pulse[2] | buy_pulse[1] | buy_pulse[0])|
+    qA &qB_&qC_&qD &(refund | moneyin_pulse[3] | moneyin_pulse[2] | moneyin_pulse[1] | buy_pulse[3] | buy_pulse[2] | buy_pulse[1] | buy_pulse[0])|
+    qA &qB_&qC &qD_&(refund | moneyin_pulse[3] | moneyin_pulse[2] | moneyin_pulse[1] | moneyin_pulse[0] | buy_pulse[3] | buy_pulse[2] | buy_pulse[1] | buy_pulse[0])
     );
    
     
     //B의 T flip-flop 입력
     assign tB = (
-    qA_&qB_&qC_&qD_&(moneyin[2])|
-    qA_&qB_&qC_&qD &(moneyin[2])|
-    qA_&qB_&qC &qD_&(moneyin[2] | moneyin[1])|
-    qA_&qB_&qC &qD &(moneyin[1] | moneyin[0])|
-    qA_&qB &qC_&qD_&(refund | moneyin[3] | moneyin[2] | buy[0])|
-    qA_&qB &qC_&qD &(refund | moneyin[3] | moneyin[2] | buy[1] | buy[0])|
-    qA_&qB &qC &qD_&(refund | moneyin[3] | moneyin[2] | moneyin[1] | buy[1] | buy[0])|
-    qA_&qB &qC &qD &(refund | moneyin[3] | moneyin[2] | moneyin[1] | moneyin[0] | buy[2] | buy[1])|
-    qA &qB_&qC_&qD_&(buy[0])|
-    qA &qB_&qC_&qD &(buy[1] | buy[0])|
-    qA &qB_&qC &qD_&(buy[1] | buy[0])
+    qA_&qB_&qC_&qD_&(moneyin_pulse[2])|
+    qA_&qB_&qC_&qD &(moneyin_pulse[2])|
+    qA_&qB_&qC &qD_&(moneyin_pulse[2] | moneyin_pulse[1])|
+    qA_&qB_&qC &qD &(moneyin_pulse[1] | moneyin_pulse[0])|
+    qA_&qB &qC_&qD_&(refund | moneyin_pulse[3] | moneyin_pulse[2] | buy_pulse[0])|
+    qA_&qB &qC_&qD &(refund | moneyin_pulse[3] | moneyin_pulse[2] | buy_pulse[1] | buy_pulse[0])|
+    qA_&qB &qC &qD_&(refund | moneyin_pulse[3] | moneyin_pulse[2] | moneyin_pulse[1] | buy_pulse[1] | buy_pulse[0])|
+    qA_&qB &qC &qD &(refund | moneyin_pulse[3] | moneyin_pulse[2] | moneyin_pulse[1] | moneyin_pulse[0] | buy_pulse[2] | buy_pulse[1])|
+    qA &qB_&qC_&qD_&(buy_pulse[0])|
+    qA &qB_&qC_&qD &(buy_pulse[1] | buy_pulse[0])|
+    qA &qB_&qC &qD_&(buy_pulse[1] | buy_pulse[0])
     );
 
 
     //C의 T flip-flop 입력
     assign tC = (
-    qA_&qB_&qC_&qD_&(moneyin[3] | moneyin[1])|
-    qA_&qB_&qC_&qD &(moneyin[2] | moneyin[1] | moneyin[0])|
-    qA_&qB_&qC &qD_&(refund | moneyin[3] | moneyin[1])|
-    qA_&qB_&qC &qD &(refund | moneyin[3] | moneyin[2] | moneyin[1] | moneyin[0] | buy[0])|
-    qA_&qB &qC_&qD_&(moneyin[1])|
-    qA_&qB &qC_&qD &(moneyin[2] | moneyin[1] | moneyin[0] | buy[0])|
-    qA_&qB &qC &qD_&(refund | moneyin[3] | moneyin[2] | moneyin[1] | buy[1])|
-    qA_&qB &qC &qD &(refund | moneyin[3] | moneyin[2] | moneyin[1] | moneyin[0] | buy[2] | buy[0])|
-    qA &qB_&qC_&qD_&(moneyin[1] | buy[1])|
-    qA &qB_&qC_&qD &(moneyin[0] | buy[2] | buy[0])|
-    qA &qB_&qC &qD_&(refund | moneyin[3] | moneyin[2] | moneyin[1] | moneyin[0] | buy[3] | buy[1])
+    qA_&qB_&qC_&qD_&(moneyin_pulse[3] | moneyin_pulse[1])|
+    qA_&qB_&qC_&qD &(moneyin_pulse[2] | moneyin_pulse[1] | moneyin_pulse[0])|
+    qA_&qB_&qC &qD_&(refund | moneyin_pulse[3] | moneyin_pulse[1])|
+    qA_&qB_&qC &qD &(refund | moneyin_pulse[3] | moneyin_pulse[2] | moneyin_pulse[1] | moneyin_pulse[0] | buy_pulse[0])|
+    qA_&qB &qC_&qD_&(moneyin_pulse[1])|
+    qA_&qB &qC_&qD &(moneyin_pulse[2] | moneyin_pulse[1] | moneyin_pulse[0] | buy_pulse[0])|
+    qA_&qB &qC &qD_&(refund | moneyin_pulse[3] | moneyin_pulse[2] | moneyin_pulse[1] | buy_pulse[1])|
+    qA_&qB &qC &qD &(refund | moneyin_pulse[3] | moneyin_pulse[2] | moneyin_pulse[1] | moneyin_pulse[0] | buy_pulse[2] | buy_pulse[0])|
+    qA &qB_&qC_&qD_&(moneyin_pulse[1] | buy_pulse[1])|
+    qA &qB_&qC_&qD &(moneyin_pulse[0] | buy_pulse[2] | buy_pulse[0])|
+    qA &qB_&qC &qD_&(refund | moneyin_pulse[3] | moneyin_pulse[2] | moneyin_pulse[1] | moneyin_pulse[0] | buy_pulse[3] | buy_pulse[1])
     );
     
     
     //D의 T flip-flop 입력
     assign tD = (
-    qA_&qB_&qC_&qD_&(moneyin[2] | moneyin[0])|
-    qA_&qB_&qC_&qD &(refund | moneyin[3] | moneyin[2] | moneyin[0])|
-    qA_&qB_&qC &qD_&(moneyin[2] | moneyin[0])|
-    qA_&qB_&qC &qD &(refund | moneyin[3] | moneyin[2] | moneyin[0] | buy[0])|
-    qA_&qB &qC_&qD_&(moneyin[2] | moneyin[0] | buy[0])|
-    qA_&qB &qC_&qD &(refund | moneyin[3] | moneyin[2] | moneyin[0] | buy[1] | buy[0])|
-    qA_&qB &qC &qD_&(moneyin[0] | buy[1] | buy[0])|
-    qA_&qB &qC &qD &(refund | moneyin[3] | moneyin[2] | moneyin[0] | buy[2] | buy[1] | buy[0])|
-    qA &qB_&qC_&qD_&(moneyin[0] | buy[2] | buy[1] | buy[0])|
+    qA_&qB_&qC_&qD_&(moneyin_pulse[2] | moneyin_pulse[0])|
+    qA_&qB_&qC_&qD &(refund | moneyin_pulse[3] | moneyin_pulse[2] | moneyin_pulse[0])|
+    qA_&qB_&qC &qD_&(moneyin_pulse[2] | moneyin_pulse[0])|
+    qA_&qB_&qC &qD &(refund | moneyin_pulse[3] | moneyin_pulse[2] | moneyin_pulse[0] | buy_pulse[0])|
+    qA_&qB &qC_&qD_&(moneyin_pulse[2] | moneyin_pulse[0] | buy_pulse[0])|
+    qA_&qB &qC_&qD &(refund | moneyin_pulse[3] | moneyin_pulse[2] | moneyin_pulse[0] | buy_pulse[1] | buy_pulse[0])|
+    qA_&qB &qC &qD_&(moneyin_pulse[0] | buy_pulse[1] | buy_pulse[0])|
+    qA_&qB &qC &qD &(refund | moneyin_pulse[3] | moneyin_pulse[2] | moneyin_pulse[0] | buy_pulse[2] | buy_pulse[1] | buy_pulse[0])|
+    qA &qB_&qC_&qD_&(moneyin_pulse[0] | buy_pulse[2] | buy_pulse[1] | buy_pulse[0])|
     qA &qB_&qC_&qD &(1'b1)|
-    qA &qB_&qC &qD_&(buy[3] | buy[2] | buy[1] | buy[0])
+    qA &qB_&qC &qD_&(buy_pulse[3] | buy_pulse[2] | buy_pulse[1] | buy_pulse[0])
     );
     
     
