@@ -33,7 +33,11 @@ module vending_machine(
     decoder dec2 (.hex(4'h0), .seg(seg_10));
     decoder dec3 (.hex(4'h0), .seg(seg_1));
     
-    assign buy_available_led = {qA&qB_&qC_&qD, qA_&qB&qC&qD, qA_&qB&qC_&qD, qA_&qB_&qC&qD}; //gfdfd
+    //구매 가능한 물건 표시 출력
+    assign buy_available_led[3] = (qA &qB_&qC_&qD | qA &qB_&qC &qD_);
+    assign buy_available_led[2] = (qA_&qB &qC &qD | qA &qB_&qC_&qD_ | qA &qB_&qC_&qD | qA &qB_&qC &qD_);
+    assign buy_available_led[1] = (qA_&qB &qC_&qD | qA_&qB &qC &qD_ | qA_&qB &qC &qD | qA &qB_&qC_&qD_ | qA &qB_&qC_&qD | qA &qB_&qC &qD_);
+    assign buy_available_led[0] = (qA_&qB_&qC &qD | qA_&qB &qC_&qD_ | qA_&qB &qC_&qD | qA_&qB &qC &qD_ | qA_&qB &qC &qD | qA &qB_&qC_&qD_ | qA &qB_&qC_&qD | qA &qB_&qC &qD_);
     
     
     //돈 투입 성공 출력
