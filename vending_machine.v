@@ -8,8 +8,6 @@ module vending_machine(
     input refund,          // 반환 버튼
     output [6:0] seg_1000,    // 7-segment: 1000자리
     output [6:0] seg_100,    // 7-segment: 100자리
-    output [6:0] seg_10,    // 7-segment: 10자리
-    output [6:0] seg_1, // 7-segment: 1자리
     output refund_led, //반환 확인용 led
     output [3:0] buy_available_led, // 구매 가능한 물건 표시 led (900[3], 700[2], 500[1], 300[0])
     output moneyin_led, //돈 투입 성공 led
@@ -30,8 +28,6 @@ module vending_machine(
     assign state = {qA, qB, qC, qD};
     decoder dec0 (.hex(digit_1000), .seg(seg_1000));
     decoder dec1 (.hex(state), .seg(seg_100));
-    decoder dec2 (.hex(4'h0), .seg(seg_10));
-    decoder dec3 (.hex(4'h0), .seg(seg_1));
     
     //구매 가능한 물건 표시 출력
     assign buy_available_led[3] = (qA &qB_&qC_&qD | qA &qB_&qC &qD_);
