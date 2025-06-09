@@ -71,37 +71,29 @@
 #set_property -dict { PACKAGE_PIN U17   IOSTANDARD LVCMOS33 } [get_ports btnD]
 
 
-##Pmod Header JA
-# Verilog port name: led_ext
-set_property -dict { PACKAGE_PIN J1   IOSTANDARD LVCMOS33 } [get_ports {led_ext[0]}]; # 음료수 판매 실패
-set_property -dict { PACKAGE_PIN L2   IOSTANDARD LVCMOS33 } [get_ports {led_ext[1]}]; # 음료수 판매 성공
-set_property -dict { PACKAGE_PIN J2   IOSTANDARD LVCMOS33 } [get_ports {led_ext[2]}]; # 돈 투입 성공
-set_property -dict { PACKAGE_PIN G2   IOSTANDARD LVCMOS33 } [get_ports {led_ext[3]}]; # 반환 확인
-set_property -dict { PACKAGE_PIN H1   IOSTANDARD LVCMOS33 } [get_ports {led_ext[4]}]; # 300원 음료수 구매 가능
-set_property -dict { PACKAGE_PIN K2   IOSTANDARD LVCMOS33 } [get_ports {led_ext[5]}]; # 500원 음료수 구매 가능
-set_property -dict { PACKAGE_PIN H2   IOSTANDARD LVCMOS33 } [get_ports {led_ext[6]}]; # 700원 음료수 구매 가능
-set_property -dict { PACKAGE_PIN G3   IOSTANDARD LVCMOS33 } [get_ports {led_ext[7]}]; # 900원 음료수 구매 가능
+## --- LED OUTPUTS ---
+set_property -dict { PACKAGE_PIN J1   IOSTANDARD LVCMOS33 } [get_ports {buy_fail_led}];         # 음료수 판매 실패
+set_property -dict { PACKAGE_PIN L2   IOSTANDARD LVCMOS33 } [get_ports {buy_success_led}];      # 음료수 판매 성공
+set_property -dict { PACKAGE_PIN J2   IOSTANDARD LVCMOS33 } [get_ports {moneyin_led}];          # 돈 투입 성공
+set_property -dict { PACKAGE_PIN G2   IOSTANDARD LVCMOS33 } [get_ports {refund_led}];           # 반환 확인
+set_property -dict { PACKAGE_PIN H1   IOSTANDARD LVCMOS33 } [get_ports {buy_available_led[0]}]; # 300원 음료 구매 가능
+set_property -dict { PACKAGE_PIN K2   IOSTANDARD LVCMOS33 } [get_ports {buy_available_led[1]}]; # 500원
+set_property -dict { PACKAGE_PIN H2   IOSTANDARD LVCMOS33 } [get_ports {buy_available_led[2]}]; # 700원
+set_property -dict { PACKAGE_PIN G3   IOSTANDARD LVCMOS33 } [get_ports {buy_available_led[3]}]; # 900원
 
-##Pmod Header JB
-# Verilog port name : button_ext
-set_property -dict { PACKAGE_PIN A14   IOSTANDARD LVCMOS33 } [get_ports {button_ext[0]}]; # 리셋
-set_property -dict { PACKAGE_PIN A16   IOSTANDARD LVCMOS33 } [get_ports {button_ext[1]}]; # 1000원 투입
-set_property -dict { PACKAGE_PIN B15   IOSTANDARD LVCMOS33 } [get_ports {button_ext[2]}]; # 500원 투입
-set_property -dict { PACKAGE_PIN B16   IOSTANDARD LVCMOS33 } [get_ports {button_ext[3]}]; # 200원 투입
-set_property -dict { PACKAGE_PIN A15   IOSTANDARD LVCMOS33 } [get_ports {button_ext[4]}]; # 100원 투입
-set_property -dict { PACKAGE_PIN A17   IOSTANDARD LVCMOS33 } [get_ports {button_ext[5]}]; # 900원 음료수 구매
-set_property -dict { PACKAGE_PIN C15   IOSTANDARD LVCMOS33 } [get_ports {button_ext[6]}]; # 700원 음료수 구매
-set_property -dict { PACKAGE_PIN C16   IOSTANDARD LVCMOS33 } [get_ports {button_ext[7]}]; # 500원 음료수 구매  
+## --- BUTTON INPUTS (JB, JC) ---
+set_property -dict { PACKAGE_PIN A14   IOSTANDARD LVCMOS33 } [get_ports {reset_n}];             # 리셋 (active low)
+set_property -dict { PACKAGE_PIN A16   IOSTANDARD LVCMOS33 } [get_ports {moneyin[3]}];          # 1000원
+set_property -dict { PACKAGE_PIN B15   IOSTANDARD LVCMOS33 } [get_ports {moneyin[2]}];          # 500원
+set_property -dict { PACKAGE_PIN B16   IOSTANDARD LVCMOS33 } [get_ports {moneyin[1]}];          # 200원
+set_property -dict { PACKAGE_PIN A15   IOSTANDARD LVCMOS33 } [get_ports {moneyin[0]}];          # 100원
 
-##Pmod Header JC
-set_property -dict { PACKAGE_PIN K17   IOSTANDARD LVCMOS33 } [get_ports {button_ext[8]}]; # 300원 음료수 구매
-set_property -dict { PACKAGE_PIN M18   IOSTANDARD LVCMOS33 } [get_ports {button_ext[9]}]; # 반환
-#set_property -dict { PACKAGE_PIN N17   IOSTANDARD LVCMOS33 } [get_ports {JC[2]}];#Sch name = JC3
-#set_property -dict { PACKAGE_PIN P18   IOSTANDARD LVCMOS33 } [get_ports {JC[3]}];#Sch name = JC4
-#set_property -dict { PACKAGE_PIN L17   IOSTANDARD LVCMOS33 } [get_ports {JC[4]}];#Sch name = JC7
-#set_property -dict { PACKAGE_PIN M19   IOSTANDARD LVCMOS33 } [get_ports {JC[5]}];#Sch name = JC8
-set_property -dict { PACKAGE_PIN P17   IOSTANDARD LVCMOS33 } [get_ports {digit_ext[6]}]; # com1 (왼쪽 자리)
-set_property -dict { PACKAGE_PIN R18   IOSTANDARD LVCMOS33 } [get_ports {digit_ext[7]}]; # com2 (오른쪽 자리)
+set_property -dict { PACKAGE_PIN A17   IOSTANDARD LVCMOS33 } [get_ports {buy[3]}];              # 900원 음료
+set_property -dict { PACKAGE_PIN C15   IOSTANDARD LVCMOS33 } [get_ports {buy[2]}];              # 700원
+set_property -dict { PACKAGE_PIN C16   IOSTANDARD LVCMOS33 } [get_ports {buy[1]}];              # 500원
+set_property -dict { PACKAGE_PIN K17   IOSTANDARD LVCMOS33 } [get_ports {buy[0]}];              # 300원
+
+set_property -dict { PACKAGE_PIN M18   IOSTANDARD LVCMOS33 } [get_ports {refund}];              # 반환 버튼
 
 ##Pmod Header JXADC
 # Verilog port name: seg_ext
