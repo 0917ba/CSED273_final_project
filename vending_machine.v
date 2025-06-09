@@ -55,7 +55,7 @@ module vending_machine(
     
     //돈 투입 성공 출력
     assign moneyin_led = (
-    qA_&qB_&qC_&qD_&(moneyin_pulse[0] | moneyin_pulse[1] | moneyin_pulse[2] | moneyin[3])| //0
+    qA_&qB_&qC_&qD_&(moneyin_pulse[0] | moneyin_pulse[1] | moneyin_pulse[2] | moneyin_pulse[3])| //0
     qA_&qB_&qC_&qD &(moneyin_pulse[0] | moneyin_pulse[1] | moneyin_pulse[2])| //100
     qA_&qB_&qC &qD_&(moneyin_pulse[0] | moneyin_pulse[1] | moneyin_pulse[2])| //200
     qA_&qB_&qC &qD &(moneyin_pulse[0] | moneyin_pulse[1] | moneyin_pulse[2])| //300
