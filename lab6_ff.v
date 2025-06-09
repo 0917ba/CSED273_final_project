@@ -30,3 +30,22 @@ module edge_trigger_T_FF(input reset_n, input t, input clk, output q, output q_)
     );
  
 endmodule
+
+module edge_trigger_D_FF(input reset_n, input d, input clk, output q, output q_);   
+
+    wire j, k;
+
+    assign j = d;
+    assign k = ~d;
+
+    edge_trigger_JKFF jkff_inst (
+        .reset_n(reset_n),
+        .j(j),
+        .k(k),
+        .clk(clk),
+        .q(q),
+        .q_(q_)
+    );
+
+ 
+endmodule
