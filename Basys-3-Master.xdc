@@ -95,6 +95,9 @@ set_property -dict { PACKAGE_PIN K17   IOSTANDARD LVCMOS33 } [get_ports {buy[0]}
 
 set_property -dict { PACKAGE_PIN M18   IOSTANDARD LVCMOS33 } [get_ports {refund}];              # 반환 버튼
 
+set_property -dict { PACKAGE_PIN P17  IOSTANDARD LVCMOS33 } [get_ports { an[0] }]; # digit 1 common-anode enable (JC P17)
+set_property -dict { PACKAGE_PIN R18  IOSTANDARD LVCMOS33 } [get_ports { an[1] }]; # digit 2 common-anode enable (JC R18)
+
 ##Pmod Header JXADC
 # Verilog port name: seg_ext
 set_property -dict { PACKAGE_PIN J3   IOSTANDARD LVCMOS33 } [get_ports {seg_ext[0]}]; # a
