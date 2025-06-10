@@ -7,7 +7,7 @@ module display_mux(
     input  wire [6:0] seg0,
     input  wire [6:0] seg1,
     output reg  [7:0] seg_ext,  // {dp, g, f, e, d, c, b, a}
-    output reg  [1:0] an        // an[0], an[1]
+    output reg  [3:0] an    
 );
     reg sel;
     always @(posedge clk or negedge reset_n) begin
@@ -20,10 +20,10 @@ module display_mux(
     always @* begin
         if (sel) begin
             seg_ext = {1'b1, seg1};  // DP off, display seg1
-            an      = 2'b01;          // enable digit 1
+            an      = 4'b0001;          // enable digit 1
         end else begin
             seg_ext = {1'b1, seg0};  // DP off, display seg0
-            an      = 2'b10;          // enable digit 0
+            an      = 4'b0010;          // enable digit 0
         end
     end
 endmodule
