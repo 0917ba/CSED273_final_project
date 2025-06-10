@@ -177,7 +177,7 @@ module vending_machine(
     qA_&qB &qC &qD_&(moneyin_pulse[0] | buy_pulse[1] | buy_pulse[0])|
     qA_&qB &qC &qD &(refund | moneyin_pulse[3] | moneyin_pulse[2] | moneyin_pulse[0] | buy_pulse[2] | buy_pulse[1] | buy_pulse[0])|
     qA &qB_&qC_&qD_&(moneyin_pulse[0] | buy_pulse[2] | buy_pulse[1] | buy_pulse[0])|
-    qA &qB_&qC_&qD &(1'b1)|
+    qA &qB_&qC_&qD &(refund | moneyin_pulse[3] | moneyin_pulse[2] | moneyin_pulse[1] | moneyin_pulse[0] | buy_pulse[3] | buy_pulse[2] | buy_pulse[1] | buy_pulse[0])|
     qA &qB_&qC &qD_&(buy_pulse[3] | buy_pulse[2] | buy_pulse[1] | buy_pulse[0])
     );
     
